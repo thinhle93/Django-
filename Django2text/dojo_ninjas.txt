@@ -1,0 +1,16 @@
+from apps.dojo_ninjas.models import *
+
+dojo.objects.create(name="CodingDojo Sillicon Valley", city="Mountain View", state="CA")
+dojo.objects.create(name="CodingDojo Seattle", city="Seattle", state="WA")
+dojo.objects.create(name="CodingDojo New York", city="New York", state="NY")
+
+ninja.objects.create(fname="Thinh", lname="Le", dojo=dojo.objects.get(id=1)) //the dojo.objects.get() is to assign the ninja to the dojo with that id
+ninja.objects.create(fname="Ian", lname="Soo", dojo=dojo.objects.get(id=2))
+ninja.objects.create(fname="Johnnie", lname="Tran", dojo=dojo.objects.get(id=3))
+ninja.objects.create(fname="Bo", lname="Degga", dojo=dojo.objects.get(id=3))
+
+c = ninja.objects.filter(dojo=3)
+c[0].fname // this will ouput Johnnie
+c[1].fname // Bo
+
+c // calling just c will output all the OBJECTS in a LIST where the dojo id is 3

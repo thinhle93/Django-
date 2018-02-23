@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session Word</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+</head>
+<body >
+	<div class="container">
+	<div class="form-group">
+	<form action="/process" method="post">
+		{% csrf_token %}
+
+		<p>Add a new word</p>
+		
+		<input type="text" name="word">
+		
+		<p>Choose a color</p>
+		<input type="radio" name="color" value="red">Red
+		<br>
+		<input type="radio" name="color" value="green">Green
+		<br>
+		<input type="radio" name="color" value="blue">Blue
+		<br>
+		<label><input type="checkbox" name="size" value='big'>show in BIG fonts!</label>
+		<br>
+
+		<button>Add to Session</button>
+
+		
+
+		
+	</form>
+	</div>
+	<form action="/reset" method="post">
+		{% csrf_token %}
+		<button>Clear Session</button>
+		{% for i in request.session.words %}
+		<p><span style="text-transform: {{i.size}}; color: {{i.clr}};">{{i.word}} </span>{{i.time}}</p>
+		{% endfor %}
+	</form>
+
+	</div>
+</body>
+</html>

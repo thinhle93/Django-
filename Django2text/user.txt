@@ -1,0 +1,10 @@
+User.objects.create(fname="Thinh", lname="Le", email="thinh@gmail.com", age=123)
+User.objects.create(fname="Ian", lname="Soo", email="ian@gmail.com", age=321)
+User.objects.last()
+User.objects.all()
+User.objects.order_by("fname")
+b = User.objects.get(id=3)
+b.lname = "NotTran"
+b.save()
+c = User.objects.get(id=2)
+c.delete()

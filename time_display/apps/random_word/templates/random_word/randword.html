@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random word</title>
+</head>
+<body>
+	<h1>Random word generator</h1>
+
+	<div class="randword">
+		<h2>{{random}}</h2>
+
+		<p>{{counter}}</p>
+	</div>
+
+	<form action="/reset" method="post">
+		{% csrf_token %}
+		<button>Reset</button>
+	</form>
+
+</body>
+</html>

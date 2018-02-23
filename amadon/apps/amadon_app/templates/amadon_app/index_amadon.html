@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amadon</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+</head>
+<body>
+	<div class="container">
+		<div class="form-group">
+			
+				<table class="table">
+					<tr>
+						<th>Item</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Actions</th>
+					</tr>
+					<tr>
+						<td>shirt</td>
+						<td>$19.99</td>
+						<form action="/process" method="post">
+						{% csrf_token %}
+						<td><select name="quantity">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select></td>
+						<input type="hidden" name="product" value="shirt">
+						<td><button>buy</button></td>
+						</form>
+					</tr>
+					
+
+					<tr>
+
+						<td>Sweater</td>
+						<td>$29.99</td>
+						<form action="/process" method="post">
+						{% csrf_token %}
+						<td><select name="quantity">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select></td>
+						<input type="hidden" name="product" value="sweater">
+						<td><button>buy</button></td>
+					</tr>
+					</form>
+
+					<tr>
+					<td>Cup</td>
+						<td>$5.99</td>
+						<form action="/process" method="post">
+						{% csrf_token %}
+						<td><select name="quantity">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select></td>
+						<input type="hidden" name="product" value="cup">
+						<td><button>buy</button></td>
+					</form>
+				</tr>
+					<tr>
+					<td>Book</td>
+						<td>$49.99</td>
+						<form action="/process" method="post">
+						{% csrf_token %}
+						<td><select name="quantity">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select></td>
+						<input type="hidden" name="product" value="book">
+						<td><button>buy</button></td>
+					</form>
+				</tr>
+				</table>
+
+				<form action="/reset" method="post"> 
+					{% csrf_token %}
+				<input type="submit" value="Clear Order" class="btn btn-primary">
+				</form>
+				
+			
+		</div>
+		
+
+	</div>
+	
+</body>
+</html>

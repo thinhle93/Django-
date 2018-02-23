@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In</title>
+	{% load staticfiles %}
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+</head>
+<body>
+
+	<div class="container">
+		<h2>Register</h2>
+		<form action='/login/register' method='post'>
+			{% csrf_token %}
+		
+
+		First Name: <input type="text" name="fname">
+		<br>
+		Last Name: <input type="text" name="lname">
+		<br>
+		Email: <input type="text" name="email">
+		<br>
+		Password: <input type="text" name="pass">
+		<br>
+		Retype Password: <input type="text" name="repass">
+		<br>
+		<input type="submit" value="submit" class="btn btn-primary">
+
+	</form>
+	<hr>
+
+	{% if messages %}
+		<ul class="messages">
+    	{% for message in messages %}
+    	<li>{{ message }}</li>
+    	{% endfor %}
+		</ul>
+		{% endif %}
+	
+	<form action='login/logcheck' method="post">
+		{% csrf_token %}
+		<h2>Log In</h2>
+		Email:<input type="text" name="useremail">
+		<br>
+		Password:<input type="text" name="passcheck">
+		<input type="submit" value="Log In" class="btn btn-primary">
+	</form>
+		
+	</div>
+
+</body>
+</html>

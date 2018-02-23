@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+</head>
+<body>
+	<p>Thanks for the submission! You have submitted this form {{request.session.word}} time(s) now</p>
+	<p>{{name}}</p>
+	<p>{{location}}</p>
+	<p>{{favoritelang}}</p>
+	<p>{{comment}}</p>
+
+<form action="/" method="post">
+	{% csrf_token %}
+
+	<button>Back</button>
+
+</form>
+</body>
+</html>

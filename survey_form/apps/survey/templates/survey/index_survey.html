@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey</title>
+</head>
+<body>
+
+	
+
+	<form action='/result' method="post">
+		{% csrf_token %}
+		Your Name:<input type="text" name="name">
+		<br>
+		Location: <select name="location">
+			<option>Sillicon Valley</option>
+			<option>Seattle</option>
+			<option>Los Angeles</option>
+			<option>Dallas</option>
+			<option>Chicago</option>
+			<option>Tulsa</option>
+			<option>Washinton DC</option>
+		</select>
+		<br>
+		Favorite Language: <select name="favlang">
+			<option>Ruby</option>
+			<option>Python</option>
+			<option>JavaScript</option>
+			<option>C++</option>
+		</select>
+
+		<br>
+
+		Comment (Optional):
+		<br>
+		<textarea name="comment"></textarea>
+		<br>
+		<input type="submit" value="Submit Form">
+	</form>
+	
+</body>
+</html>

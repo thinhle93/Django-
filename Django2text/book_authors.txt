@@ -1,0 +1,26 @@
+from apps.book_authors.models import *
+
+/to connect book and author, must make the book and author first
+Book.objects.create(name="Pirates", desc="A book about pirates")
+Author.objects.create(fname="Thinh", lname="Le", email="thinh@gmail.com")
+/then do these 3 lines
+thisbook = Book.objects.get(id=1) /since the first book has id of 1
+thisauthor = Author.objects.get(id=1) /first author made also has id 1
+thisauthor.books.add(thisbook) / books is the name under author
+
+/ when you many books under one author
+a = thisauthor.books.all()
+a[0].name /or whatever you want to call on the book youre looking at 
+
+/to do the reverse where you look up the authors of one book, you use the related name instead of "books"
+f = Book.objects.get(id=1)
+g = f.authors.all() /authors is the related name / or just call f.all() which will give the same as calling g
+f[0].fname /or whatever 
+
+/to remove a book from an author 
+set variable to the book
+set variable to the author 
+(variable for book).remove(variable for book)
+
+To look at everything other than the one you want use exclude
+Author.objects.exclude(name="Thinh") /this will give you the list of authors except for Thinh
